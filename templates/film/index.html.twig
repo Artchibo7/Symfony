@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste des films
+{% endblock %}
+
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+
+{% endfor %}
+	
+
+	<ul>
+		{% for film in films %}
+			<li>
+				<a href=' {{ path('app_film_show', {nom: film.nom}) }}'>{{film.nom}}</a>
+				<a href=' {{ path('app_film_delete', {id: film.id}) }}' class='btn bnt-danger'>Supprimer</a>
+				<a href=' {{ path('app_film_update', {id: film.id}) }}' class='btn bnt-primary'>Modifier</a>
+			</li>
+
+		{% endfor %}
+
+	</ul>
+
+	<a href=' {{ path('app_film_new') }}'>Créer un nouveau film</a>
+
+{% endblock %}

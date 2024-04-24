@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des films
+{% endblock %}
+
+
+{% block body %}
+
+	<h1>
+		{{ film.nom }}
+	</h1>
+
+	<p>
+		Catégories :
+		{% for categorie in film.categorie %}
+			<a href=' {{ path('app_categorie_show', { nom: categorie.nom }) }}'>{{ categorie.nom }}
+			</a>
+		{% endfor %}
+	</p>
+
+	{{ dump(film) }}
+
+{% endblock %}

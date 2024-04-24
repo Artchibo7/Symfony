@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title "Créer un nouveau film" %}
+
+
+{% block body %}
+
+	{% for success in app.flashes('success') %}
+		<div class='bg-success'>
+			<p>message</p>
+		</div>
+	{% endfor %}
+
+	<h1>Créer un nouveau film</h1>
+
+	{{ form(formNew) }}{% endblock %}
